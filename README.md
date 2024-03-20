@@ -1,4 +1,4 @@
-
+# Uso de registros y convenciones de llamadas
 <!---
 https://www.canva.com/design/DAF_cWux6Oc/k8AQyKAOCLx1Y70bYZEYpQ/edit
    Para comentarios usar este bloque para documentar pendientes, secuencias, etc.
@@ -76,7 +76,7 @@ R14(LR): Registro de enlace, almacena la direccion de retorno de una subtrina.
 
 R15(PC): Contador de programa. Almacena la direccion de la siguiente instruccion que se ejecutara
 
-###Registro de Control (CR)
+### Registro de Control (CR)
 CPSR: Registro de estado del programa. Contiene informacion sobre el modo de ejecucion del procesador, banderas de condicion y nivel de interrucpcion actual
 
 SPSR: Registro estado del programa aplilado. ALmacena el valor de CPSR anter de una interrupcion o excepcion.
