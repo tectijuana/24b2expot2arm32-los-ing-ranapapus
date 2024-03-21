@@ -156,7 +156,9 @@ y=fib;
 return 0;
 }
 ```
+```asm
 as -o fibonaccia.o fibonacci.s
 gcc -o fibonaccic.o -c fibonacci.c
 gcc -o programa fibonaccia.o fibonaccic.o
 ./programa
+```
