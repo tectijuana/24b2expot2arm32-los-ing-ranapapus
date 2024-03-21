@@ -120,116 +120,39 @@ Punteros de pila: El SP (Stack Pointer) apunta al final de la pila, y el FP (Fra
 ## Programa ejemplo
 ### Serie Fibonacci
 ```asm
-.section .data
-format_str: .asciz "Introduce un número: "
-input_format: .asciz "%d"
-fibonacci_str: .asciz "Fibonacci %d: %d\n"
 
-.section .bss
-numero: .skip 4
+.global sumar
+.type sumar, %function
 
-.section .text
-.global main
-.global fibonacci
-.global printf
-.global scanf
-
-main:
-    @ Imprimir mensaje
-    LDR R0, =format_str
-    BL printf
-
-    @ Leer entrada del usuario
-    LDR R0, =input_format
-    LDR R1, =numero  @ Coloca el formato de entrada
-    BL scanf
-
-    @ Inicializar variables del bucle
-    MOV R3, #0       @ R3 es el contador del bucle
-
-loop:
-    CMP R3, R0       @ Comprobar si hemos alcanzado el número ingresado
-    BGE end_loop     @ Si hemos llegado al número, salir del bucle
-
-    MOV R1, R3       @ R1 contiene el índice actual del bucle para fibonacci
-    BL fibonacci     @ Llama a la función fibonacci
-    MOV R2, R0       @ R2 contiene el valor calculado de fibonacci
-
-    @ Imprimir resultado de fibonacci
-    LDR R0, =fibonacci_str
-    MOV R1, R3       @ R1 contiene el índice actual del bucle
-    MOV R2, R2       @ R2 contiene el valor calculado de fibonacci
-    BL printf
-
-    ADD R3, R3, #1   @ Incrementa el contador del bucle
-    B loop           @ Volver al inicio del bucle
-
-end_loop:
-    MOV R7, #1       @ syscall para exit
-    SWI 0            @ causa una interrupción de software para salir
-
-fibonacci:
-    PUSH {LR}        @ Guarda el enlace de retorno
-    CMP R0, #1       @ Compara n con 1
-    MOVLE R0, R0     @ Si n <= 1, devuelve n
-    BLE end_fibonacci
-
-    SUB R1, R0, #1   @ Calcula fibonacci(n-1)
-    BL fibonacci
-
-    MOV R2, R0       @ Guarda fibonacci(n-1) en R2
-
-    SUB R0, R0, #2   @ Calcula fibonacci(n-2)
-    BL fibonacci
-
-    ADD R0, R0, R2   @ Suma fibonacci(n-1) y fibonacci(n-2)
-
-end_fibonacci:
-    POP {PC}         @ Retorna de la función
+sumar:
+    @ Argumentos:
+    @   r0 - primer número
+    @   r1 - segundo número
+    
+    ADD r0, r0, r1  @ Suma r0 y r1, resultado en r0
+    BX lr           @ Regresa a la función llamadora
 ```
 
 ```c
 #include <stdio.h>
 
-	extern int fibonacci(int n) {
-		if (n <= 1) {
-			return n;
-		} else {
-			return fibonacci(n - 1) + fibonacci(n - 2);
-		}
-	}
-
-	int main() {
-		int numero;
-
-		printf("Introduce un número: ");
-		scanf("%d", &numero);
-
-		for (int i = 0; i < numero; i++) {
-			int fib = fibonacci(i);
-			printf("Fibonacci %d: %d\n", i + 1, fib);
-		}
-
-		return 0;
-	}
-//Codigo C con integracion
-#include <stdio.h>
-
-extern int fibonacci(int n);
+extern int sumar(int a, int b);
 
 int main() {
-	int numero;
-
-	printf("Introduce un número: ");
-	scanf("%d", &numero);
-
-	for (int i = 0; i < numero; i++) {
-		int fib = fibonacci(i);
-		printf("Fibonacci %d: %d\n", i + 1, fib);
-	}
-
-	return 0;
+int numero;
+int x=1;
+int y=1;
+int fib=1;
+printf("Introduce un número: ");
+scanf("%d", &numero);
+printf("Fibonacci 1: 1\n");
+for (int i = 0; i < (numero-1); i++) {
+    printf("Fibonacci %d: %d\n", i + 2, fib);
+fib = sumar(x, y);
+x=y;
+y=fib;
 }
 
-
+return 0;
+}
 ```
