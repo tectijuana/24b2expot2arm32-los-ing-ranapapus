@@ -162,3 +162,5 @@ gcc -o fibonaccic.o -c fibonacci.c
 gcc -o programa fibonaccia.o fibonaccic.o
 ./programa
 ```
+![image](https://github.com/tectijuana/24b2expot2arm32-los-ing-ranapapus/assets/142704126/c47ddb75-b0d1-4338-a70f-15b9c9200c9c)
+
