@@ -1,33 +1,19 @@
-
+# Uso de registros y convenciones de llamadas
 <!---
+https://www.canva.com/design/DAF_cWux6Oc/k8AQyKAOCLx1Y70bYZEYpQ/edit
    Para comentarios usar este bloque para documentar pendientes, secuencias, etc.
 --->
 
-
-![](https://s3.amazonaws.com/videos.pentesteracademy.com/videos/badges/low/arm-assembly.png)
-
-Borrar y modificar README
-
-# Utilizar los dos directorios
-
-- code  - ahi depositar sus programas los ***archivos extensión *.s****  (Source File) algunos autores en x86 de ponen .asm y en otras plataformas ARM compatibles la extension *.s
-- Todo programa lleva su comentario en la parte de arriba, objetivo y nombre del programador minimo, como templete
-- images  - de haber algo de pantallas ahi se presentaran, su busca documentarlas en MARKDOWN el código es:
-
-``` ![](images/---archivo.jpg---) recordar que no lleva espacios```
-
-<!---
-  Los nombres de las imagenes no deben cambiar de preferenci el nombre del programa como:  KIOSKO.cpp (su pantallas serian KISOCO.jpg, KIOSCO-1.jpg, KIOSCO-2.jpg ... )
-  Y asi procurar estar agrupados.
---->
+![image](https://github.com/tectijuana/24b2expot2arm32-los-ing-ranapapus/assets/158226731/5af42423-06ee-423b-89fa-defca9b73378)
 
 
 
-- Programa en MarkDown es inicia con tres tildes * (`) sin espacio, seguido de el lenguaje de programacion, al final del codigo se poner otra vez los mismos tilder..
 
-No se usan espacios en nombres de archivos, usar los nombres estilo camelCase (primera palabra minusculas, mayuscula solo la 1ra letra de cada palabra subsecuente):  ejemplo: sensorHumo, etc.
 
-Suerte.
+
+
+
+
 
 
 
@@ -59,76 +45,122 @@ Título del trabajo:
 Ejercicios ......
 
 Estudiante:
-.......
+Bañuelos Vazquez Eduardo Daniel
+Garcia Cortez Kevin Eduardo
+Montaño Zaragoza Marcos Ulises
+Perez Luna Jaime Alonso
+Velazquez Pizarro Mixcoatl Obed
 
 	</p>
 
-</pre>
-
-<pre>
-
-	<p align=left>
-
-Repositorio en el cual se desarrollaron distintos ejercicios en el lenguaje de 
-programacion c++, tomados del libro "Problemas para resolver con computadora" 
-1ra edicion (1985), por el autor Donald D. Spencer. 
-
-Los ejercicios corresponden al capitulo 6 del libro, entre las paginas 77 a 86.
-Se realizaron 25 problemas debido a la entrega fuera del limite de tiempo.
-
-CONDICIONES:
-
-	EXTEMPORÁNEOS DE LA FECHA DE ENTREGA, despues del 25 de marzo y 1 segundo:
-
-	-Solo 25 problemas a resolver y están en aleatorio las condiciones de uso, 
-		algunos simples otros de recordar, etc. CAPITULO 6 en adelante.
-
-	-Agregar las indicaciones de los criterios de la rùbrica
-	
-RÚBRICA:
-
-        Todo problema es necesario siga el templete OBLIGATORIO para entregar el 
-		problema codificado, usted puede correr sus programas con su estilo 
-		pero ya que este funcionando, debe arreglarlo a presentación para su 
-		evaluación.
-
-        MODIFICAR LA PORTADA CON MARKDOWN Y ACTUALIZARLA, esta libre de cambiar 
-		todo.
-        Los archivos deben tener su extensión .CPP (no .txt, etc.)
-
-	Los problemas están en la relación siguiente:
-	
-	- 100% Sigue el templete proporcionado por el docente y corren 10 
-		Problemas (o si incremento en programas por supuesta dificultad) 
-		completamente en GITHUB Classroom (no repositorio personal),  los 
-		archivos deben tener su extensión .CPP (no .txt, .EXE, etc.) acomodados 
-		en dentro de un directorio  (sin acentos o simbolos) SOLO FUENTES, y 
-		modifica el README.md que sea una portada.
-	- 80% Sigue el templete proporcionado por el docente y corre 8 Problemas 
-		(o si incremento en programas por supuesta dificultad) completamente 
-		en GITHUB Classroom (no repositorio personal), los archivos deben 
-		tener su extensión .CPP (no .txt, etc.) acomodados en dentro de un 
-		directorio (sin acentos o simbolos) SOLO FUENTES, y modifica el 
-		README.md que sea una portada.
-	- 70% Sigue el templete proporcionado por el docente y corre 7 Problemas 
-		(o si incremento en programas por supuesta dificultad) completamente 
-		en GITHUB Classroom (no repositorio personal), los archivos deben 
-		tener su extensión .CPP (no .txt, etc.) acomodados en dentro de un 
-		directorio (sin acentos o simbolos) SOLO FUENTES, y modifica el 
-		README.md que sea una portada.
-	- 50 % EVITA Y NO USA el templete proporcionado por el docente sus Problemas 
-		(o si incremento en programas por supuesta dificultad) completamente 
-		en GITHUB Classroom (no repositorio personal) con mas de 7 problemas 
-		resueltos, los archivos NO tener su extensión .CPP y  puede o no estar 
-		acomodados en dentro de un directorio (sin acentos o simbolos) 
-		SOLO FUENTES, y modifica el README.md que sea una portada.
-
-ENTREGA:
-
-	URL del GitHub Classroom, y recuerde arreglar la PORTADA, quitar todos los 
-		elementos extras del templete, acomodarlo bien para su presentación 
-		solo lo necesario.
-
-	</p>
 
 </pre>
+# 3. Uso de registros y convenciones de llamadas
+
+## Introducción 
+
+La comunicación efectiva entre usuario y sistema es esencial para una experiencia fluida. Los mensajes del sistema, ya sean instrucciones, notificaciones de errores o información contextual, son clave para una interacción intuitiva.
+
+Dos herramientas fundamentales para lograr esta comunicación son los registros y las convenciones de llamadas. Los registros funcionan como la memoria del sistema, almacenando información sobre las acciones del usuario y otros eventos relevantes. Por otro lado, las convenciones de llamadas establecen reglas para la estructura y el nombre de las funciones y métodos, lo que facilita la comprensión del código y mejora la legibilidad.
+
+En este tema, exploraremos el uso de registros y convenciones de llamadas, destacando sus beneficios y las mejores prácticas para su implementación.
+
+## Tipos de registros en ARM32
+
+### Registros de Proposito general
+R0 - R12: Se utilizan para almacenar datos y direcciones de memoria.
+
+R13(SP): Puntero de pila, almacena la direccion de la parte superior de la pila.
+
+R14(LR): Registro de enlace, almacena la direccion de retorno de una subtrina.
+
+R15(PC): Contador de programa. Almacena la direccion de la siguiente instruccion que se ejecutara
+
+### Registro de Control (CR)
+CPSR: Registro de estado del programa. Contiene informacion sobre el modo de ejecucion del procesador, banderas de condicion y nivel de interrucpcion actual
+
+SPSR: Registro estado del programa aplilado. ALmacena el valor de CPSR anter de una interrupcion o excepcion.
+
+### Registro de bancos de registros
+Permite acceder a un conjunto adicional de 32 registros a proposito general (R16 a R31).
+
+Se utilizan para almacenar datos locales en subrutinas o para implementar diferentes contextos de ejecucion.
+
+### Registros de coprocesador (CP)
+Proporcionan acceso a la funcionalidad de coprocesadores especificos, como unidades de punto de flotante o unidades de procesamiento de señales digitales.
+
+### Registros de sistema (SY)
+Contienen informacion sobre el sistema como la indentificacion de procesador, la configuracion de la memoria y las opciones de configuracion
+
+### Registros de depuracion (DBG)
+Se utilizan para facilitar la depuracion del software. Permiten al depurador leer y escribir en los registros del procesador y la memorria
+
+## Uso de registros para paso de argumentos
+El rendimiento de las llamadas de función se puede mejorar si el sistema tiene todos los argumentos pasados en los registros. Debido a que sólo hay un número limitado de registros, con el fin de aumentar la posibilidad de tener todos los argumentos pasados en los registros, combinar varios argumentos en una clase y pasar la dirección de la clase a la función. Debido a que se está pasando una dirección, se utiliza la semántica de pasar por referencia, que puede no haber sido el caso cuando los argumentos se pasaban como variables individuales.
+
+En ARM de 32 bits, los valores de retorno de las funciones se almacenan en un conjunto de registros específicos conocidos como registros de resultado (result registers). Estos registros son los siguientes:
+
+r0: Valor de retorno primario.
+r1-r3: Registros de retorno adicionales (para valores de retorno múltiples o extensiones de 64 bits).
+r4-r12: Registros temporales utilizados para almacenamiento de propósito general.
+
+Cuando una función devuelve un valor, generalmente se coloca en r0. Sin embargo, si el valor de retorno es más grande que 32 bits o si la función devuelve varios valores, se pueden usar otros registros de resultado.
+
+### Convención de llamadas AAPCS. 
+
+La Convención de llamadas AAPCS (ARM Architecture Procedure Call Standard) establece cómo se manejan los argumentos y los valores de retorno durante las llamadas a funciones en la arquitectura ARM, promoviendo la interoperabilidad entre compiladores, sistemas operativos y bibliotecas.
+
+Aspectos clave de AAPCS:
+Registros: Los primeros 4 argumentos se pasan en los registros R0 a R3. Las variables locales se asignan en la pila, y los valores de retorno se guardan en R0.
+
+Paso de argumentos: Los valores de los argumentos se copian en registros o en la pila para el paso por valor, mientras que para el paso por referencia, se pasa la dirección del argumento en un registro.
+
+Punteros de pila: El SP (Stack Pointer) apunta al final de la pila, y el FP (Frame Pointer) apunta al marco de la pila actual.
+
+## Programa ejemplo
+### Serie Fibonacci
+```asm
+
+.global sumar
+.type sumar, %function
+
+sumar:
+    @ Argumentos:
+    @   r0 - primer número
+    @   r1 - segundo número
+    
+    ADD r0, r0, r1  @ Suma r0 y r1, resultado en r0
+    BX lr           @ Regresa a la función llamadora
+```
+
+```c
+#include <stdio.h>
+
+extern int sumar(int a, int b);
+
+int main() {
+int numero;
+int x=1;
+int y=1;
+int fib=1;
+printf("Introduce un número: ");
+scanf("%d", &numero);
+printf("Fibonacci 1: 1\n");
+for (int i = 0; i < (numero-1); i++) {
+    printf("Fibonacci %d: %d\n", i + 2, fib);
+fib = sumar(x, y);
+x=y;
+y=fib;
+}
+
+return 0;
+}
+```
+```asm
+as -o fibonaccia.o fibonacci.s
+gcc -o fibonaccic.o -c fibonacci.c
+gcc -o programa fibonaccia.o fibonaccic.o
+./programa
+```
+![image](https://github.com/tectijuana/24b2expot2arm32-los-ing-ranapapus/assets/142704126/c47ddb75-b0d1-4338-a70f-15b9c9200c9c)
+
